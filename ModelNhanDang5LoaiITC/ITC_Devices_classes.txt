@@ -1,0 +1,5 @@
+keypad_phone
+land_line
+laptop
+pc
+smartphone

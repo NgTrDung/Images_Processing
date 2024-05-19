@@ -9,8 +9,8 @@ from keras import datasets, layers, models, optimizers
 tf.get_logger().setLevel('ERROR')
 
 # Load model
-model_architecture = r"C:/Users/dung8/Downloads/Giai-Nen/Image-Processing-Project/ModelNhanDangChuSoVietTay/digit_config.json"
-model_weights = r"C:/Users/dung8/Downloads/Giai-Nen/Image-Processing-Project/ModelNhanDangChuSoVietTay/digit.weights.h5"
+model_architecture = r"ModelNhanDangChuSoVietTay\digit_config.json"
+model_weights = r"ModelNhanDangChuSoVietTay\digit.weights.h5"
 model = models.model_from_json(open(model_architecture).read())
 model.load_weights(model_weights)
 OPTIMIZER = tf.keras.optimizers.Adam()
@@ -25,7 +25,7 @@ model.compile(loss="categorical_crossentropy", optimizer=OPTIMIZER,
 page_bg_img = """
 <style>
 [data-testid="stAppViewContainer"] {
-    background-image: url("https://t4.ftcdn.net/jpg/04/94/85/25/360_F_494852538_r8ylVApdAY0YuWYCkWIsg5pDZkboERYI.jpg");
+    background-image: url("https://static.vecteezy.com/system/resources/previews/010/008/086/non_2x/background-dimension-3d-graphic-message-board-for-text-and-message-design-line-shadow-for-modern-web-design-free-vector.jpg");
     background-size: 100% 100%;
 }
 

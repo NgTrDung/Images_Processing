@@ -6,7 +6,7 @@ st.set_page_config(
     page_icon=" ",
 )
 
-st.write("<h1 style='font-size: 50px;color:black'>Welcome to the website! </h1>", unsafe_allow_html=True)
+st.write("<h1 style='font-size: 50px;color:black'>Welcome to the website for Images Processing! </h1>", unsafe_allow_html=True)
 st.sidebar.success("You can choose one of my projects above.")
 
 
@@ -24,7 +24,7 @@ def add_bg_from_local(image_file):
     """,
     unsafe_allow_html=True
     )
-add_bg_from_local("C:/Users/dung8/Downloads/Giai-Nen/Image-Processing-Project/Background/Home.png")  
+add_bg_from_local("Background/Background.jpg")  
 st.markdown("""
 <style>
     [data-testid=stSidebar] {
@@ -44,23 +44,36 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+st.write('<div class="header">'
+            '<p class="header-title">ĐỒ ÁN CUỐI KỲ XỬ LÝ ẢNH SỐ</p>'
+            '<p class="header-malop">(DIPR430685_23_1)</p>'
+        '</div>',
+          unsafe_allow_html=True)
+# st.write("# Mã lớp : DIPR430685_23_1_01")
+st.write("## 21133021 - Nguyễn Trọng Dũng")
+st.write("## Lớp chiều tối Thứ 4 - Mã lớp trên FHQX: DIPR430685_23_2_03")
+
+
 st.markdown(
-"""
-    <div class="red-text">
-        Hello!
-         <p><b style="font-size: 40px;">Personal Information:</b></p>
-        <div>
-        - Full name: Tran Thi Ngoc Trang</p>
-        - Student code: 21133109</p>
-        - School name: HCMC University of Technology and Education
-        </div>
-	<p><b style="font-size: 40px;">Contact me:</b></p>
-        <p>- Ngoc Trang: <a style="color:green" href="21133109@student.hcmute.edu.vn">21133109@student.hcmute.edu.vn</a></p>
-	<p><b style="font-size: 40px;">Instructor Information:</b></p>
-   	<div>
-        <p>- Teacher: Tran Tien Duc</p>
-	</div>
-    </div>
-    """,
-    unsafe_allow_html=True
+    """
+    
+    ## Sản phẩm
+    #### Project cuối kỳ cho môn học XỬ LÝ ẢNH SỐ (DIPR430685).
+    Thuộc Trường Đại Học Sư Phạm Kỹ Thuật TP.HCM do 
+    **Th.S Trần Tiến Đức** hướng dẫn. 
+
+    ### Đồ án gồm 6 chức năng cơ bản
+    - 📖 1. Đếm số ngón tay
+    - 📖 2. Nhận dạng 5 loại Thiết bị công nghệ thông tin và truyền thông (ITC Devices)
+    - 📖 3. Nhận diện cảm xúc trên khuôn mặt (angry, disgust, fear, happy, neutral, sad, suprise)
+    - 📖 4. Nhận dạng chữ số viết tay
+    - 📖 5. Nhận diện khuôn mặt (5 người)
+    - 📖 6. Xử lý ảnh
+
+    ### Em đã thêm các chức năng:
+    - 🍀 1. Đếm số ngón tay
+    - 🍀 3. Nhận diện cảm xúc trên khuôn mặt (angry, disgust, fear, happy, neutral, sad, suprise)
+
+    Đề tài và bài báo cáo được em thực hiện trong khoảng thời gian ngắn, với những kiến thức còn hạn chế cùng nhiều hạn chế khác về mặt kĩ thuật và kinh nghiệm trong việc thực hiện một dự án. Do đó, trong quá trình làm nên đề tài có những thiếu sót là điều không thể tránh khỏi nên em rất mong nhận được những ý kiến đóng góp quý báu của thầy để kiến thức của em được hoàn thiện hơn và chúng em có thể làm tốt hơn nữa trong những lần sau. Em xin chân thành cảm ơn. 
+    """
 )

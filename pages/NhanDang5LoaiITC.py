@@ -2,18 +2,35 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 import cv2
-st.title('Nhận dạng trái cây')
+import base64
+st.title('Nhận dạng Thiết bị công nghệ thông tin và truyền thông (ICT Devices)')
+
+def add_bg_from_local(image_file):
+    with open(image_file, "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read())
+    st.markdown(
+    f"""
+    <style>
+    .stApp {{
+        background-image: url(data:image/{"png"};base64,{encoded_string.decode()});
+        background-size: cover
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+    )
+add_bg_from_local("Background/Background.jpg") 
 
 try:
     if st.session_state["LoadModel"] == True:
         print('Đã load model rồi')
 except:
     st.session_state["LoadModel"] = True
-    st.session_state["Net"] = cv2.dnn.readNet("C:/Users/dung8/Downloads/Giai-Nen/Image-Processing-Project/ModelNhanDang5LoaiITC/yolov8_ITC_Devices.onnx")
+    st.session_state["Net"] = cv2.dnn.readNet("ModelNhanDang5LoaiITC\yolov8_ITC_Devices.onnx")
     print(st.session_state["LoadModel"])
     print('Load model lần đầu') 
 
-filename_classes = "C:/Users/dung8/Downloads/Giai-Nen/Image-Processing-Project/ModelNhanDang5LoaiITC/ITC_Devices_classes.txt"
+filename_classes = "ModelNhanDang5LoaiITC\ITC_Devices_classes.txt"
 mywidth  = 640
 myheight = 640
 postprocessing = 'yolov8'

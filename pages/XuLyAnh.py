@@ -4,7 +4,7 @@ import sys
 import os
 import numpy as np
 import base64
-sys.path.append("C:/Users/dung8/Downloads/Giai-Nen/Image-Processing-Project/ModelXuLyAnh")
+sys.path.append("ModelXuLyAnh")
 import Chuong3 as c3
 import Chuong4 as c4
 import Chuong5 as c5
@@ -29,7 +29,7 @@ def add_bg_from_local(image_file):
     """,
     unsafe_allow_html=True
     )
-add_bg_from_local("C:/Users/dung8/Downloads/Giai-Nen/Image-Processing-Project/Background/XuLyAnh.jpg")  
+add_bg_from_local("Background\Background.jpg")  
 st.markdown("""
 <style>
     [data-testid=stSidebar] {
@@ -59,9 +59,9 @@ def main():
         st.session_state.caption=None
     st.title("Computer Vision")
 
-    with open("C:/Users/dung8/Downloads/Giai-Nen/Image-Processing-Project/ModelXuLyAnh/Test_Image.zip", "rb") as fp:
+    with open("ModelXuLyAnh\XuLyAnh.zip", "rb") as fp:
         btn = st.download_button(
-            label="Download ZIP",
+            label="Download ZIP For Getting Images To Process",
             data=fp,
             file_name="Test_Image.zip",
             mime="application/zip"
@@ -102,22 +102,22 @@ def chuong3():
         st.subheader("Buttons")
         buttons_layout = st.columns(4)
 
-        if buttons_layout[0].button("Negative"):
+        if buttons_layout[0].button("Làm âm ảnh (Negative)"):
             st.session_state.imgout = c3.Negative(st.session_state.imgin)
             st.session_state.caption= "Nagative Image"
             display_image(col2, st.session_state.imgout, "Negative Image")
 
-        if buttons_layout[1].button("Logaric"):
+        if buttons_layout[1].button("Logarit ảnh"):
             st.session_state.imgout = c3.Logarit(st.session_state.imgin)
             st.session_state.caption= "Logaric Image"
             display_image(col2, st.session_state.imgout, "Logaric Image")  
 
-        if buttons_layout[2].button("Power"):
+        if buttons_layout[2].button("Lũy thừa ảnh"):
             st.session_state.imgout = c3.Power(st.session_state.imgin)
             st.session_state.caption= "Power Image"
             display_image(col2, st.session_state.imgout, "Power Image")  
         
-        if buttons_layout[3].button("PiecewiseLinear"):
+        if buttons_layout[3].button("Biến đổi tuyến tính từng phần"):
             st.session_state.imgout = c3.PiecewiseLinear(st.session_state.imgin)
             st.session_state.caption= "PiecewiseLinear Image"
             display_image(col2, st.session_state.imgout, "PiecewiseLinear Image") 
@@ -127,42 +127,42 @@ def chuong3():
             st.session_state.caption= "Histogram Image"
             display_image(col2, st.session_state.imgout, "Histogram Image") 
 
-        if buttons_layout[1].button("HistEqual"):
+        if buttons_layout[1].button("Cân bằng Histogram"):
             st.session_state.imgout = c3.HistEqual(st.session_state.imgin)
             st.session_state.caption= "HistEqual Image"
             display_image(col2, st.session_state.imgout, "HistEqual Image")
             
-        if buttons_layout[2].button("HistEqualColor"):
+        if buttons_layout[2].button("Cân bằng Histogram của ảnh màu"):
             st.session_state.imgout = c3.HistEqualColor(st.session_state.imgin)
             st.session_state.caption= "HistEqualColor Image"
             display_image(col2, st.session_state.imgout, "HistEqualColor Image")
 
-        if buttons_layout[3].button("LocalHist"):
+        if buttons_layout[3].button("Local Histogram"):
             st.session_state.imgout = c3.LocalHist(st.session_state.imgin)
             st.session_state.caption= "LocalHist Image"
             display_image(col2, st.session_state.imgout, "LocalHist Image")
 
-        if buttons_layout[0].button("HistStat"):
+        if buttons_layout[0].button("Thống kê histogram"):
             st.session_state.imgout = c3.HistStat(st.session_state.imgin)
             st.session_state.caption= "HistStat Image"
             display_image(col2, st.session_state.imgout, "HistStat Image")
 
-        if buttons_layout[1].button("MyBoxFilter"):
+        if buttons_layout[1].button("BoxFilter"):
             st.session_state.imgout = c3.MyBoxFilter(st.session_state.imgin)
             st.session_state.caption= "MyBoxFilter Image"
             display_image(col2, st.session_state.imgout, "MyBoxFilter Image")
         
-        if buttons_layout[2].button("BoxFilter"):
+        if buttons_layout[2].button("GaussFilter"):
             st.session_state.imgout = c3.BoxFilter(st.session_state.imgin)
             st.session_state.caption= "BoxFilter Image"
             display_image(col2, st.session_state.imgout, "BoxFilter Image")
 
-        if buttons_layout[3].button("Threshold"):
+        if buttons_layout[3].button("Phân ngưỡng"):
             st.session_state.imgout = c3.Threshold(st.session_state.imgin)
             st.session_state.caption= "Threshold Image"
             display_image(col2, st.session_state.imgout, "Threshold Image")
         
-        if buttons_layout[0].button("MedianFilter"):
+        if buttons_layout[0].button("Lọc median"):
             st.session_state.imgout = c3.MedianFilter(st.session_state.imgin)
             st.session_state.caption= "MedianFilter Image"
             display_image(col2, st.session_state.imgout, "MedianFilter Image")
@@ -176,13 +176,6 @@ def chuong3():
             st.session_state.imgout = c3.Gradient(st.session_state.imgin)
             st.session_state.caption= "Gradient Image"
             display_image(col2, st.session_state.imgout, "Gradient Image")
-
-
-    if st.sidebar.button("Save Image"):
-        if st.session_state.imgout is not None:
-            save_image(st.session_state.imgout, file_uploaded)
-        else:
-            st.sidebar.warning("Không có ảnh đầu ra để lưu.")
 
 def chuong4():
     st.subheader("Chương 4")
@@ -221,11 +214,6 @@ def chuong4():
                 st.session_state.caption= "RemoveMoire Image"
                 display_image(col2, st.session_state.imgout, "RemoveMoire Image") 
 
-    if st.sidebar.button("Save Image"):
-        if st.session_state.imgout is not None:
-            save_image(st.session_state.imgout, file_uploaded)
-        else:
-            st.sidebar.warning("Không có ảnh đầu ra để lưu.")
 def chuong5():
     st.subheader("Chương 5")
     file_uploaded = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png", "tif"])
@@ -258,11 +246,6 @@ def chuong5():
                 st.session_state.caption= "DenoisestMotion Image"
                 display_image(col2, st.session_state.imgout, "DenoisestMotion Image") 
 
-    if st.sidebar.button("Save Image"):
-        if st.session_state.imgout is not None:
-            save_image(st.session_state.imgout, file_uploaded)
-        else:
-            st.sidebar.warning("Không có ảnh đầu ra để lưu.")
 def chuong9():
     st.subheader("Chương 9")
     file_uploaded = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png", "tif"])
@@ -278,11 +261,6 @@ def chuong9():
             st.subheader("Output Image")
         with col3:
             st.subheader("Buttons")
-            if st.button("Boundary"):
-                st.session_state.imgout = c9.Boundary(st.session_state.imgin)
-                st.session_state.caption= "Boundary Image"
-                display_image(col2, st.session_state.imgout, "Boundary Image")
-
             if st.button("ConnectedComponen"):
                 st.session_state.imgout = c9.ConnectedComponent(st.session_state.imgin)
                 st.session_state.caption= "ConnectedComponen Image"
@@ -293,43 +271,11 @@ def chuong9():
                 st.session_state.caption= "CountRice Image"
                 display_image(col2, st.session_state.imgout, "CountRice Image")  
 
-    if st.sidebar.button("Save Image"):
-        if st.session_state.imgout is not None:
-            save_image(st.session_state.imgout,file_uploaded)
-        else:
-            st.sidebar.warning("Không có ảnh đầu ra để lưu.")
 
-def save_image(image,file_uploaded):
-    output_folder = st.sidebar.text_input("Nhập đường dẫn đến thư mục:", placeholder="path/to/output/folder")
-    if output_folder:
-        if os.path.isdir(output_folder):
-            input_filename = os.path.basename(file_uploaded.name)
-            output_filename = f"{st.session_state.caption}"+"_"+os.path.splitext(input_filename)[0] +".jpg"
-            output_path = os.path.join(output_folder, output_filename)
-            cv2.imwrite(output_path, image)
-            st.sidebar.success(f"Ảnh đã được lưu vào: {output_path}")
-        else:
-            st.sidebar.warning("Đường dẫn thư mục không hợp lệ.")
-    else:
-        st.sidebar.warning("Vui lòng nhập đường dẫn đến thư mục.")
 
 def display_image(column, img, caption):
     column.image(img, caption, use_column_width=True)
 
-
-# def save_image2(image,file_uploaded):
-#     output_folder = st.sidebar.text_input("Nhập đường dẫn đến thư mục:", placeholder="path/to/output/folder")
-#     if output_folder:
-#         if os.path.isdir(output_folder):
-#             input_filename = os.path.basename(file_uploaded.name)
-#             output_filename = f"{st.session_state.caption}"+"_"+os.path.splitext(input_filename)[0] +".jpg"
-#             output_path = os.path.join(output_folder, output_filename)
-#             cv2.imwrite(output_path, image)
-#             st.sidebar.success(f"Ảnh đã được lưu vào: {output_path}")
-#         else:
-#             st.sidebar.warning("Đường dẫn thư mục không hợp lệ.")
-#     else:
-#         st.sidebar.warning("Vui lòng nhập đường dẫn đến thư mục.")
 
 if __name__ == "__main__":
     main()

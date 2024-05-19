@@ -21,7 +21,7 @@ def add_bg_from_local(image_file):
     """,
     unsafe_allow_html=True
     )
-add_bg_from_local("C:/Users/dung8/Downloads/Giai-Nen/Image-Processing-Project/Background/NhanDangKhuonMat.png")  
+add_bg_from_local("Background/Background.jpg") 
 st.markdown("""
 <style>
     [data-testid=stSidebar] {
@@ -59,7 +59,7 @@ if press:
 print('Trang thai nhan Stop', st.session_state.stop)
 
 if 'frame_stop' not in st.session_state:
-    frame_stop = cv.imread("C:/Users/dung8/Downloads/Giai-Nen/Image-Processing-Project/ModelNhanDangKhuonMat/stop.jpg")
+    frame_stop = cv.imread("ModelNhanDangKhuonMat/stop.jpg")
     st.session_state.frame_stop = frame_stop
     print('Đã load stop.jpg')
 
@@ -67,7 +67,7 @@ if st.session_state.stop == True:
     FRAME_WINDOW.image(st.session_state.frame_stop, channels='BGR')
 
 
-svc = joblib.load("C:/Users/dung8/Downloads/Giai-Nen/Image-Processing-Project/ModelNhanDangKhuonMat/svc.pkl")
+svc = joblib.load("ModelNhanDangKhuonMat/svc.pkl")
 mydict = ['NgocHan', 'NgocTrang','ThanhHien', 'ThuyLinh','TrongDung']
 
 def visualize(input, faces, fps, thickness=2):
@@ -87,7 +87,7 @@ def visualize(input, faces, fps, thickness=2):
 
 if __name__ == '__main__':
     detector = cv.FaceDetectorYN.create(
-        "C:/Users/dung8/Downloads/Giai-Nen/Image-Processing-Project/ModelNhanDangKhuonMat/face_detection_yunet_2023mar.onnx",
+        "ModelNhanDangKhuonMat/face_detection_yunet_2023mar.onnx",
         "",
         (320, 320),
         0.9,
@@ -95,7 +95,7 @@ if __name__ == '__main__':
         5000)
     
     recognizer = cv.FaceRecognizerSF.create(
-    "C:/Users/dung8/Downloads/Giai-Nen/Image-Processing-Project/ModelNhanDangKhuonMat/face_recognition_sface_2021dec.onnx","")
+    "ModelNhanDangKhuonMat/face_recognition_sface_2021dec.onnx","")
 
     tm = cv.TickMeter()
 

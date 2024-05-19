@@ -46,7 +46,6 @@ st.markdown(
 
 st.write('<div class="header">'
             '<p class="header-title">ĐỒ ÁN CUỐI KỲ XỬ LÝ ẢNH SỐ</p>'
-            '<p class="header-malop">(DIPR430685_23_1)</p>'
         '</div>',
           unsafe_allow_html=True)
 # st.write("# Mã lớp : DIPR430685_23_1_01")
